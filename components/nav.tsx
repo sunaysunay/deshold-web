@@ -1,18 +1,19 @@
 "use client"
 import Link from "next/link"
+import { useTranslations } from "next-intl"
 import { useState, useEffect } from "react"
 import { Menu, X, ChevronDown } from "lucide-react"
 
-const navLinks = [
-  { href: "/about",     label: "About Us" },
-  { href: "/businesses",label: "Businesses" },
-  { href: "/platform",  label: "DES Platform" },
-  { href: "/news",      label: "News & Insights" },
-  { href: "/careers",   label: "Careers" },
-  { href: "/contact",   label: "Contact" },
-]
-
 export default function Nav() {
+  const t = useTranslations("Nav")
+  const navLinks = [
+    { href: "/about",     label: t("about") },
+    { href: "/businesses",label: t("businesses") },
+    { href: "/platform",  label: t("platform") },
+    { href: "/news",      label: t("news") },
+    { href: "/careers",   label: t("careers") },
+    { href: "/contact",   label: t("contact") },
+  ]
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -50,7 +51,7 @@ export default function Nav() {
           </button>
           <Link href="/contact"
             className="flex items-center gap-2 border border-white/30 text-white text-[13px] font-medium px-4 py-2 rounded-lg hover:bg-white hover:text-slate-900 transition-all duration-200">
-            Contact Us
+            t("cta")
           </Link>
         </div>
 
@@ -71,7 +72,7 @@ export default function Nav() {
           ))}
           <Link href="/contact" onClick={() => setOpen(false)}
             className="block mt-4 text-center bg-white text-slate-900 text-sm font-semibold px-4 py-2.5 rounded-lg">
-            Contact Us
+            t("cta")
           </Link>
         </div>
       )}
