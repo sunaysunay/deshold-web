@@ -1,60 +1,77 @@
 "use client"
 import Link from "next/link"
-import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import { useState, useEffect } from "react"
+import { Menu, X, ChevronDown } from "lucide-react"
 
-const links = [
-  { href: "/divisies", label: "Onze divisies" },
-  { href: "/over-ons", label: "Over ons" },
-  { href: "/platform", label: "DES Platform" },
-  { href: "/contact", label: "Contact" },
+const navLinks = [
+  { href: "/about",     label: "About Us" },
+  { href: "/businesses",label: "Businesses" },
+  { href: "/platform",  label: "DES Platform" },
+  { href: "/news",      label: "News & Insights" },
+  { href: "/careers",   label: "Careers" },
+  { href: "/contact",   label: "Contact" },
 ]
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 40)
+    window.addEventListener("scroll", fn)
+    return () => window.removeEventListener("scroll", fn)
+  }, [])
+
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200/60">
-      <nav className="max-w-6xl mx-auto flex items-center justify-between px-5 py-3.5">
-        <Link href="/" className="flex items-center gap-2 group">
-          <span className="w-2 h-2 rounded-full bg-[#1D9E75] shrink-0" />
-          <span className="text-[15px] font-semibold text-slate-900 tracking-tight">DES Group</span>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled ? "bg-slate-950/95 backdrop-blur-md shadow-lg" : "bg-black/30 backdrop-blur-sm"
+    }`}>
+      <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-6">
+        {/* Logo */}
+        <Link href="/" className="flex flex-col leading-none">
+          <span className="text-white font-bold text-2xl tracking-wide">DESHOLD</span>
+          <span className="text-[10px] text-slate-400 tracking-[0.15em] uppercase">Building Businesses</span>
         </Link>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-7">
-          {links.map(l => (
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex items-center gap-7">
+          {navLinks.map(l => (
             <Link key={l.href} href={l.href}
-              className="text-[13px] text-slate-500 hover:text-slate-900 transition-colors font-medium">
+              className="text-[13px] text-slate-300 hover:text-white transition-colors font-medium">
               {l.label}
             </Link>
           ))}
-        </div>
+        </nav>
 
-        <div className="hidden md:flex items-center gap-3">
+        {/* CTA + Lang */}
+        <div className="hidden lg:flex items-center gap-3">
+          <button className="flex items-center gap-1 text-[12px] text-slate-400 hover:text-white transition-colors">
+            EN <ChevronDown className="w-3 h-3" />
+          </button>
           <Link href="/contact"
-            className="text-[13px] font-medium bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-slate-700 transition-colors">
-            Neem contact op
+            className="flex items-center gap-2 border border-white/30 text-white text-[13px] font-medium px-4 py-2 rounded-lg hover:bg-white hover:text-slate-900 transition-all duration-200">
+            Contact Us
           </Link>
         </div>
 
         {/* Mobile toggle */}
-        <button className="md:hidden p-1.5" onClick={() => setOpen(v => !v)}>
-          {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        <button className="lg:hidden p-1.5 text-white" onClick={() => setOpen(v => !v)}>
+          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
-      </nav>
+      </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-slate-100 bg-white px-5 pb-4">
-          {links.map(l => (
+        <div className="lg:hidden bg-slate-950 border-t border-white/10 px-6 pb-5">
+          {navLinks.map(l => (
             <Link key={l.href} href={l.href} onClick={() => setOpen(false)}
-              className="block py-2.5 text-sm text-slate-700 border-b border-slate-100 last:border-0">
+              className="block py-3 text-sm text-slate-300 border-b border-white/5 last:border-0 hover:text-white">
               {l.label}
             </Link>
           ))}
           <Link href="/contact" onClick={() => setOpen(false)}
-            className="block mt-3 text-center text-sm font-medium bg-slate-900 text-white px-4 py-2.5 rounded-lg">
-            Neem contact op
+            className="block mt-4 text-center bg-white text-slate-900 text-sm font-semibold px-4 py-2.5 rounded-lg">
+            Contact Us
           </Link>
         </div>
       )}
