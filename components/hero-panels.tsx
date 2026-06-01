@@ -82,12 +82,12 @@ export default function HeroPanels() {
             >
               {panel.eyebrow && active === i && (
                 <div className="mb-4">
-                  <div className="font-bold leading-tight" style={{ fontSize: "clamp(20px,2.5vw,38px)", fontFamily: "Syne, sans-serif", letterSpacing: "-0.02em", color: "rgba(255,255,255,0.65)" }}>{panel.eyebrow}</div>
-                  <div className="font-bold leading-tight" style={{ fontSize: "clamp(20px,2.5vw,38px)", fontFamily: "Syne, sans-serif", letterSpacing: "-0.02em", color: "rgba(255,255,255,0.90)" }}>{panel.eyebrow2}</div>
+                  <div className="font-bold leading-tight" style={{ fontSize: "clamp(20px,2.5vw,38px)", fontFamily: "Syne, sans-serif", letterSpacing: "-0.02em", color: "rgba(255,255,255,0.85)" }}>{panel.eyebrow}</div>
+                  <div className="font-medium leading-tight" style={{ fontSize: "clamp(13px,1.2vw,17px)", fontFamily: "Syne, sans-serif", letterSpacing: "0.05em", color: "rgba(255,255,255,0.65)" }}>{panel.eyebrow2}</div>
                   <div className="font-medium mt-1 mb-3" style={{ fontSize: "clamp(11px,1vw,14px)", color: "rgba(56,189,248,0.85)", letterSpacing: "0.08em" }}>AI | ERP | MES | CRM | DevOps</div>
                   <div style={{
                     height: "1px",
-                    width: "80px",
+                    width: "140px",
                     background: "linear-gradient(to right, rgba(255,255,255,0.7), rgba(255,255,255,0.0))",
                   }} />
                 </div>
