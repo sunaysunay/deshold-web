@@ -38,7 +38,8 @@ const panels = [
     accent: "#8b5cf6",
     num: "04",
   },
-]"use client"
+]
+"use client"
 import { motion } from "framer-motion"
 import { useState } from "react"
 import Link from "next/link"
