@@ -81,9 +81,14 @@ export default function HeroPanels() {
               transition={{ duration: 0.3 }}
             >
               {panel.eyebrow && active === i && (
-                <div className="mb-3">
+                <div className="mb-4">
                   <div className="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/60 mb-0.5">{panel.eyebrow}</div>
-                  <div className="text-[13px] font-medium text-white/80">{panel.eyebrow2}</div>
+                  <div className="text-[13px] font-medium text-white/80 mb-3">{panel.eyebrow2}</div>
+                  <div style={{
+                    height: "1px",
+                    width: "80px",
+                    background: "linear-gradient(to right, rgba(255,255,255,0.7), rgba(255,255,255,0.0))",
+                  }} />
                 </div>
               )}
               <h2 className="text-4xl xl:text-5xl font-bold mb-3 leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
