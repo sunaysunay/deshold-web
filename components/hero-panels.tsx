@@ -82,7 +82,7 @@ export default function HeroPanels() {
             >
               {panel.eyebrow && active === i && (
                 <div className="mb-4">
-                  <div className="font-bold leading-tight" style={{ fontSize: "22px", fontFamily: "Syne, sans-serif", letterSpacing: "-0.02em", color: "rgba(255,255,255,0.85)" }}>{panel.eyebrow}</div>
+                  <div className="font-bold leading-tight" style={{ fontSize: "28px", fontFamily: "Syne, sans-serif", letterSpacing: "-0.02em", color: "rgba(255,255,255,0.85)" }}>{panel.eyebrow}</div>
                   <div className="font-medium leading-tight" style={{ fontSize: "clamp(17px,1.6vw,21px)", fontFamily: "Syne, sans-serif", letterSpacing: "0.05em", color: "rgba(255,255,255,0.65)" }}>{panel.eyebrow2}</div>
                   <div className="font-medium mt-1 mb-3" style={{ fontSize: "clamp(15px,1.4vw,18px)", color: "rgba(56,189,248,0.85)", letterSpacing: "0.08em" }}>AI | ERP | MES | CRM | DevOps</div>
                   <div style={{
@@ -92,7 +92,7 @@ export default function HeroPanels() {
                   }} />
                 </div>
               )}
-              <h2 className="font-bold leading-tight mb-3 whitespace-nowrap overflow-hidden text-ellipsis" style={{ fontSize: "22px", fontFamily: "Syne, sans-serif", letterSpacing: "-0.02em", color: "rgba(255,255,255,0.85)" }}>
+              <h2 className="font-bold leading-tight mb-3 whitespace-nowrap overflow-hidden text-ellipsis" style={{ fontSize: "28px", fontFamily: "Syne, sans-serif", letterSpacing: "-0.02em", color: "rgba(255,255,255,0.85)" }}>
                 {panel.title}
               </h2>
             </motion.div>
