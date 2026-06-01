@@ -82,8 +82,8 @@ export default function HeroPanels() {
             >
               {panel.eyebrow && active === i && (
                 <div className="mb-4">
-                  <div className="font-bold leading-tight" style={{ fontSize: "clamp(20px,2.5vw,38px)", fontFamily: ""Syne", sans-serif", letterSpacing: "-0.02em", color: "rgba(255,255,255,0.65)" }}>{panel.eyebrow}</div>
-                  <div className="font-bold leading-tight mb-3" style={{ fontSize: "clamp(20px,2.5vw,38px)", fontFamily: ""Syne", sans-serif", letterSpacing: "-0.02em", color: "rgba(255,255,255,0.90)" }}>{panel.eyebrow2}</div>
+                  <div className="font-bold leading-tight" style={{ fontSize: "clamp(20px,2.5vw,38px)", fontFamily: "Syne, sans-serif", letterSpacing: "-0.02em", color: "rgba(255,255,255,0.65)" }}>{panel.eyebrow}</div>
+                  <div className="font-bold leading-tight mb-3" style={{ fontSize: "clamp(20px,2.5vw,38px)", fontFamily: "Syne, sans-serif", letterSpacing: "-0.02em", color: "rgba(255,255,255,0.90)" }}>{panel.eyebrow2}</div>
                   <div style={{
                     height: "1px",
                     width: "80px",
