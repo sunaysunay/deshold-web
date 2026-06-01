@@ -8,7 +8,7 @@ const panels = [
   {
     title: "DES Platform",
     subtitle: "The technology behind every business. One platform. Endless possibilities.",
-    eyebrow: "Systems",
+    eyebrow: "Enterprise System Solutions",
     eyebrow2: "Enterprise Solutions",
     bg: "from-slate-900 via-violet-950 to-slate-900",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
