@@ -8,6 +8,8 @@ const panels = [
   {
     title: "DES Platform",
     subtitle: "The technology behind every business. One platform. Endless possibilities.",
+    eyebrow: "Systems & Ventures",
+    eyebrow2: "Enterprise Solutions",
     bg: "from-slate-900 via-violet-950 to-slate-900",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
     href: "/platform",
@@ -78,6 +80,12 @@ export default function HeroPanels() {
               animate={{ opacity: active === i ? 1 : 0.7 }}
               transition={{ duration: 0.3 }}
             >
+              {panel.eyebrow && active === i && (
+                <div className="mb-3">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/60 mb-0.5">{panel.eyebrow}</div>
+                  <div className="text-[13px] font-medium text-white/80">{panel.eyebrow2}</div>
+                </div>
+              )}
               <h2 className="text-4xl xl:text-5xl font-bold mb-3 leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
                 {panel.title}
               </h2>
