@@ -43,7 +43,7 @@ export default function HeroPanels() {
   const [active, setActive] = useState(0)
 
   return (
-    <section className="h-screen flex overflow-hidden">
+    <section className="flex overflow-hidden" style={{height:"75vh",minHeight:"500px"}}>
       {panels.map((panel, i) => (
         <motion.div
           key={panel.title}
