@@ -92,7 +92,7 @@ export default function HeroPanels() {
                   }} />
                 </div>
               )}
-              <h2 className="text-4xl xl:text-5xl font-bold mb-3 leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
+              <h2 className="font-bold leading-tight mb-3 whitespace-nowrap overflow-hidden text-ellipsis" style={{ fontSize: "clamp(20px,2.5vw,38px)", fontFamily: "Syne, sans-serif", letterSpacing: "-0.02em", color: "rgba(255,255,255,0.85)" }}>
                 {panel.title}
               </h2>
             </motion.div>
