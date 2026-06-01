@@ -3,7 +3,7 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { useTranslations, useLocale } from "next-intl"
-import { useRouter, usePathname } from "next/navigation"
+import { useRouter, usePathname } from "@/src/i18n/routing"
 
 const LOCALES = [
   { code: "en", label: "EN" },
@@ -21,9 +21,8 @@ function LangSwitcher() {
 
   function switchTo(code: string) {
     setOpen(false)
-    const segments = pathname.split("/")
-    segments[1] = code
-    router.push(segments.join("/") || "/")
+    // next-intl locale switch: replace current path with new locale
+    router.replace(pathname as string, { locale: code })
   }
 
   return (

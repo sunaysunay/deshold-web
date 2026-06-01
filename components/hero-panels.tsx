@@ -21,7 +21,7 @@ export default function HeroPanels() {
     },
     {
       title: "DES Mobility",
-      subtitle: "Campers, caravans, vans and vehicle trading across Europe.",
+      subtitle: "Camper Conversion Expert · Campers, caravans and vans. Freedom on the road for unforgettable outdoor journeys across Europe.",
       img: "https://images.unsplash.com/photo-1519583272095-6433daf26b6e?w=1200&q=80",
       href: "https://descampers.com",
       accent: "#1D9E75",
