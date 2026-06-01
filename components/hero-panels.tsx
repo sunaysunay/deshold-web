@@ -6,6 +6,46 @@ import { ArrowRight } from "lucide-react"
 
 const panels = [
   {
+    title: t("platform_title"),
+    subtitle: t("platform_sub"),
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
+    href: "/platform",
+    accent: "#3b82f6",
+    num: "01",
+    eyebrow: "Enterprise Systems & Solutions",
+  },
+  {
+    title: "DES Mobility",
+    subtitle: "Campers, caravans, vans and vehicle trading across Europe.",
+    img: "https://images.unsplash.com/photo-1519583272095-6433daf26b6e?w=1200&q=80",
+    href: "https://descampers.com",
+    accent: "#1D9E75",
+    num: "02",
+  },
+  {
+    title: "DES Shop",
+    subtitle: "Retail and e-commerce solutions for everyday needs.",
+    img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1200&q=80",
+    href: "https://desshop.nl",
+    accent: "#f59e0b",
+    num: "03",
+  },
+  {
+    title: "DES Ventures",
+    subtitle: "Invent, build, spin out. Product ideas, IP, prototypes. Invention lab + micro-fund.",
+    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80",
+    href: "/ventures",
+    accent: "#8b5cf6",
+    num: "04",
+  },
+]"use client"
+import { motion } from "framer-motion"
+import { useState } from "react"
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
+
+const panels = [
+  {
     title: "DES Platform",
     subtitle: "The technology behind every business. One platform. Endless possibilities.",
     eyebrow: "Enterprise Systems & Solutions",
