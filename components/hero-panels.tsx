@@ -6,6 +6,14 @@ import { ArrowRight } from "lucide-react"
 
 const panels = [
   {
+    title: "DES Platform",
+    subtitle: "The technology behind every business. One platform. Endless possibilities.",
+    bg: "from-slate-900 via-violet-950 to-slate-900",
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
+    href: "/platform",
+    accent: "#8B5CF6",
+  },
+  {
     title: "DES Campers",
     subtitle: "Freedom on the road. Premium campers for unforgettable journeys.",
     bg: "from-slate-900 via-emerald-950 to-slate-900",
@@ -22,14 +30,6 @@ const panels = [
     accent: "#3B82F6",
   },
   {
-    title: "DES Platform",
-    subtitle: "The technology behind every business. One platform. Endless possibilities.",
-    bg: "from-slate-900 via-violet-950 to-slate-900",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
-    href: "/platform",
-    accent: "#8B5CF6",
-  },
-  {
     title: "DESHold",
     subtitle: "Building businesses through technology and innovation.",
     bg: "from-slate-900 via-slate-800 to-slate-900",
@@ -40,7 +40,7 @@ const panels = [
 ]
 
 export default function HeroPanels() {
-  const [active, setActive] = useState(2)
+  const [active, setActive] = useState(0)
 
   return (
     <section className="h-screen flex overflow-hidden">
