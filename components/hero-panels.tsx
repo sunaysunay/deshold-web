@@ -24,7 +24,7 @@ export default function HeroPanels() {
       title: "Mobility",
       shortTitle: "Mobility",
       subtitle: "Camper Conversion Expert · Campers, caravans and vans. Freedom on the road for unforgettable outdoor journeys across Europe.",
-      img: "https://ttydqyiezarpdysqacaa.supabase.co/storage/v1/object/public/watermark-logos/deshold-mobility-bg.png",
+      img: "/mobility-bg.png",
       href: "https://descampers.com",
       accent: "#1D9E75",
       num: "02",
