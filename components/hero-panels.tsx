@@ -23,7 +23,7 @@ export default function HeroPanels() {
     {
       title: "Mobility",
       shortTitle: "Mobility",
-      subtitle: "Premium Vans, Camper Conversion Expert · Campers, caravans and vans. Freedom on the road for unforgettable outdoor journeys across Europe.",
+      subtitle: "Premium Vans, Campers, Caravan trader. Camper conversion expert. Freedom on the road for unforgettable outdoor journeys.",
       img: "/mobility-bg.jpg",
       href: "https://descampers.com",
       accent: "#1D9E75",
