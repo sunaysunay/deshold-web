@@ -30,8 +30,8 @@ export default function HeroPanels() {
       num: "02",
     },
     {
-      title: "DES Shop",
-      shortTitle: "Shop",
+      title: "Trade",
+      shortTitle: "Trade",
       subtitle: "Retail and e-commerce solutions for everyday needs.",
       img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1200&q=80",
       href: "https://desshop.nl",
