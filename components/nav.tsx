@@ -1,4 +1,5 @@
 "use client"
+import { ClickTracker } from "@/components/click-tracker"
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import { Menu, X, ChevronDown } from "lucide-react"
@@ -75,6 +76,8 @@ export default function Nav() {
   ]
 
   return (
+    <>
+    <ClickTracker />
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
@@ -95,6 +98,8 @@ export default function Nav() {
             <Link
               key={l.href}
               href={l.href}
+              data-track={"nav_" + l.href.replace("/","").replace("-","_") || "nav_home"}
+              data-track-type="nav"
               className="text-[13px] text-slate-300 hover:text-white transition-colors font-medium"
             >
               {l.label}
@@ -107,6 +112,7 @@ export default function Nav() {
           <LangSwitcher />
           <Link
             href="/contact"
+            data-track="cta_contact" data-track-type="cta"
             className="flex items-center gap-2 border border-white/30 text-white text-[13px] font-medium px-4 py-2 rounded-lg hover:bg-white hover:text-slate-900 transition-all duration-200"
           >
             {t("cta")}
@@ -145,5 +151,6 @@ export default function Nav() {
         </div>
       )}
     </header>
+    </>
   )
 }
