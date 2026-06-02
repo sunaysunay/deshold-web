@@ -12,7 +12,7 @@ export default function HeroPanels() {
   const panels = [
     {
       title: t("platform_title"),
-      shortTitle: "Platform",
+      shortTitle: "Digital Platform",
       subtitle: t("platform_sub"),
       img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
       href: "/platform",
