@@ -39,7 +39,7 @@ export default function HeroPanels() {
       num: "03",
     },
     {
-      title: "DES Ventures",
+      title: "Ventures",
       shortTitle: "Ventures",
       subtitle: "Invent, build, spin out. Product ideas, IP, prototypes. Invention lab + micro-fund.",
       img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80",
