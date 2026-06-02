@@ -81,22 +81,21 @@ export default function HeroPanels() {
           {/* Panel number */}
           <div className="absolute top-8 right-5 text-[11px] font-mono" style={{ color: "rgba(255,255,255,0.2)" }}>{p.num}</div>
 
-          {/* INACTIVE — horizontal short label at bottom */}
+          {/* INACTIVE — vertical text centered in panel */}
           {active !== i && (
-            <div className="absolute bottom-8 left-0 right-0 flex items-center justify-center px-2">
+            <div className="absolute inset-0 flex items-center justify-center">
               <span
-                className="text-white font-semibold text-center leading-tight"
                 style={{
-                  fontSize: "clamp(11px, 1.4vw, 15px)",
+                  writingMode: "vertical-rl",
+                  textOrientation: "mixed",
+                  transform: "rotate(180deg)",
+                  fontSize: "clamp(18px, 2.5vw, 28px)",
                   fontFamily: "Syne, sans-serif",
-                  letterSpacing: "0.05em",
-                  color: "rgba(255,255,255,0.80)",
+                  fontWeight: 700,
+                  letterSpacing: "0.12em",
+                  color: "rgba(255,255,255,0.85)",
+                  textTransform: "uppercase",
                   whiteSpace: "nowrap",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  maxWidth: "100%",
-                  display: "block",
-                  textAlign: "center",
                 }}
               >
                 {p.shortTitle}
