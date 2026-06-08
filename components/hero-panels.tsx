@@ -25,7 +25,11 @@ export default function HeroPanels() {
       shortTitle: "Mobility",
       subtitle: "Premium Vans, Campers, Caravan trader. Camper conversion expert. Freedom on the road for unforgettable outdoor journeys.",
       img: "/mobility-bg.jpg",
-      href: "https://descampers.com",
+      href: "https://desmobil.com",
+      links: [
+        { label: "Discover Automotive", href: "https://desmobil.com" },
+        { label: "Discover Campers",    href: "https://descampers.com" },
+      ],
       accent: "#1D9E75",
       num: "02",
     },
@@ -136,13 +140,30 @@ export default function HeroPanels() {
                 <p className="text-[13px] leading-relaxed mb-5 max-w-xs" style={{ color: "rgba(255,255,255,0.7)" }}>
                   {p.subtitle}
                 </p>
-                <Link
-                  href={p.href}
-                  className="inline-flex items-center gap-2 text-[12px] font-medium px-4 py-2 rounded-full transition-all"
-                  style={{ border: "1px solid rgba(255,255,255,0.4)", color: "white" }}
-                >
-                  {t("discover")} <ArrowRight className="w-3 h-3" />
-                </Link>
+                {p.links ? (
+                  <div className="flex flex-col gap-2">
+                    {p.links.map(l => (
+                      <Link
+                        key={l.href}
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-[12px] font-medium px-4 py-2 rounded-full transition-all w-fit"
+                        style={{ border: "1px solid rgba(255,255,255,0.4)", color: "white" }}
+                      >
+                        {l.label} <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <Link
+                    href={p.href}
+                    className="inline-flex items-center gap-2 text-[12px] font-medium px-4 py-2 rounded-full transition-all"
+                    style={{ border: "1px solid rgba(255,255,255,0.4)", color: "white" }}
+                  >
+                    {t("discover")} <ArrowRight className="w-3 h-3" />
+                  </Link>
+                )}
               </motion.div>
             </div>
           )}
