@@ -60,28 +60,28 @@ function DashboardMockup() {
 // ── Businesses ────────────────────────────────────────────────────────────────
 const businesses = [
   {
-    Icon: Tent, name: "DES Campers",
+    Icon: Tent, name: "Campers",
     desc: "Campers, Caravans, Outdoor",
     href: "https://descampers.com", label: "Visit Site",
     img: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=80",
     color: "#1D9E75",
   },
   {
-    Icon: Car, name: "DES Vehicles",
+    Icon: Car, name: "Vehicles",
     desc: "Vehicle sourcing, trading and sales across Europe.",
     href: "/businesses#cars", label: "Visit Site",
     img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80",
     color: "#3B82F6",
   },
   {
-    Icon: Terminal, name: "DES IT",
+    Icon: Terminal, name: "IT",
     desc: "IT consultancy, digital solutions and business automation.",
     href: "/businesses#it", label: "Visit Site",
     img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80",
     color: "#8B5CF6",
   },
   {
-    Icon: ShoppingCart, name: "DES Shop",
+    Icon: ShoppingCart, name: "Shop",
     desc: "Retail and e-commerce solutions for everyday needs.",
     href: "https://desshop.nl", label: "Visit Site",
     img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600&q=80",
