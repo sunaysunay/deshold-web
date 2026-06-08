@@ -61,13 +61,13 @@ function DashboardMockup() {
 const businesses = [
   {
     Icon: Tent, name: "DES Campers",
-    desc: "Campers, caravans and outdoor mobility solutions.",
+    desc: "Campers, Caravans, Outdoor",
     href: "https://descampers.com", label: "Visit Site",
     img: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=80",
     color: "#1D9E75",
   },
   {
-    Icon: Car, name: "DES Cars",
+    Icon: Car, name: "DES Vehicles",
     desc: "Vehicle sourcing, trading and sales across Europe.",
     href: "/businesses#cars", label: "Visit Site",
     img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80",
@@ -91,11 +91,11 @@ const businesses = [
 
 // ── Platform features ─────────────────────────────────────────────────────────
 const features = [
-  { Icon: Users,      title: "CRM & Leads",        desc: "Manage leads and customers in one place." },
+  { Icon: Users,      title: "Leads & Incident Management",  desc: "Manage leads and customers in one place." },
   { Icon: Globe,      title: "Websites & Listings", desc: "Manage multiple websites and listings seamlessly." },
   { Icon: BarChart2,  title: "Analytics & Reporting",desc: "Real-time insights for better decisions." },
   { Icon: Bot,        title: "Automation",          desc: "Automate workflows and save valuable time." },
-  { Icon: Users,      title: "Multi-Tenant",        desc: "One platform for multiple businesses." },
+  { Icon: Users,      title: "AI | ERP | MES | CRM | DevOps | E-Commerce | Marketing",  desc: "Enterprise Solutions" },
   { Icon: ShieldCheck,title: "Secure & Scalable",   desc: "Enterprise-grade security and scalable infrastructure." },
 ]
 
@@ -193,7 +193,7 @@ export default function HomePage() {
                 </div>
                 <div className="p-4">
                   <h3 className="text-[15px] font-bold text-slate-900 mb-1">{b.name}</h3>
-                  <p className="text-[12px] text-slate-500 leading-relaxed mb-3">{b.desc}</p>
+
                   <a href={b.href}
                     className="inline-flex items-center gap-1 text-[12px] font-semibold hover:gap-2 transition-all"
                     style={{ color: b.color }}>

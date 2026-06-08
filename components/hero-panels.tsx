@@ -15,7 +15,7 @@ export default function HeroPanels() {
       shortTitle: "Digital Platform",
       subtitle: t("platform_sub"),
       img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
-      href: "/platform",
+      href: "https://dessystems.io",
       accent: "#3b82f6",
       num: "01",
       eyebrow: "Enterprise Systems & Solutions",
@@ -30,21 +30,21 @@ export default function HeroPanels() {
       num: "02",
     },
     {
-      title: "Trade",
-      shortTitle: "Trade",
-      subtitle: "Retail and e-commerce solutions for everyday needs.",
-      img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1200&q=80",
-      href: "https://desshop.nl",
-      accent: "#f59e0b",
-      num: "03",
-    },
-    {
       title: "Ventures",
       shortTitle: "Ventures",
       subtitle: "Invent, build, spin out. Product ideas, IP, prototypes. Invention lab + micro-fund.",
-      img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80",
+      img: "/images/ventures-bg.jpg",
       href: "/ventures",
       accent: "#8b5cf6",
+      num: "03",
+    },
+    {
+      title: "Trade",
+      shortTitle: "Trade",
+      subtitle: "Retail and e-commerce solutions for everyday needs.",
+      img: "/images/trade-bg.png",
+      href: "https://desshop.nl",
+      accent: "#f59e0b",
       num: "04",
     },
   ]
@@ -112,7 +112,7 @@ export default function HeroPanels() {
                     {p.eyebrow}
                   </div>
                   <div className="font-medium mt-1" style={{ fontSize: "clamp(15px,1.4vw,18px)", color: "rgba(56,189,248,0.85)", letterSpacing: "0.04em" }}>
-                    AI | ERP | MES | CRM | DevOps
+                    AI | ERP | MES | CRM | DevOps | E-Commerce | Marketing
                   </div>
                   <div style={{ height: "1px", width: "140px", background: "linear-gradient(to right, rgba(255,255,255,0.7), rgba(255,255,255,0.0))", marginTop: "12px" }} />
                 </div>
