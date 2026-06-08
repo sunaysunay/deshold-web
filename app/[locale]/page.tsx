@@ -67,14 +67,14 @@ const businesses = [
     color: "#1D9E75",
   },
   {
-    Icon: Car, name: "Vehicles",
+    Icon: Car, name: "Automotive",
     desc: "Vehicle sourcing, trading and sales across Europe.",
-    href: "/businesses#cars", label: "Visit Site",
+    href: "https://desmobil.com", label: "Visit Site",
     img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80",
     color: "#3B82F6",
   },
   {
-    Icon: Terminal, name: "IT",
+    Icon: Terminal, name: "TECH",
     desc: "IT consultancy, digital solutions and business automation.",
     href: "/businesses#it", label: "Visit Site",
     img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80",

@@ -13,9 +13,9 @@ const cols = [
   {
     title: "Businesses",
     links: [
-      { label: "DES Cars",    href: "/businesses#cars" },
+      { label: "Automotive",    href: "https://desmobil.com" },
       { label: "DES Campers", href: "https://descampers.com" },
-      { label: "DES IT",      href: "/businesses#it" },
+      { label: "TECH",      href: "https://dessystems.io" },
       { label: "DES Shop",    href: "https://desshop.nl" },
     ],
   },
