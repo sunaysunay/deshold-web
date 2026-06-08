@@ -34,7 +34,7 @@ export default function HeroPanels() {
       shortTitle: "Ventures",
       subtitle: "Invent, build, spin out. Product ideas, IP, prototypes. Invention lab + micro-fund.",
       img: "/images/ventures-bg.jpg",
-      href: "/ventures",
+      href: "https://dessystems.io",
       accent: "#8b5cf6",
       num: "03",
     },
