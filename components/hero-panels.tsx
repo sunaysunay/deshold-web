@@ -39,6 +39,7 @@ export default function HeroPanels() {
       subtitle: "Invent, build, spin out. Product ideas, IP, prototypes. Invention lab + micro-fund.",
       img: "/images/ventures-bg.jpg",
       href: "https://dessystems.io/deslab",
+      ctaLabel: "Laboratory",
       accent: "#8b5cf6",
       num: "03",
     },
@@ -157,10 +158,10 @@ export default function HeroPanels() {
                 ) : (
                   <Link
                     href={p.href}
-                    className="inline-flex items-center gap-2 text-[12px] font-medium px-4 py-2 rounded-full transition-all"
-                    style={{ border: "1px solid rgba(255,255,255,0.4)", color: "white" }}
+                    className="inline-flex items-center gap-2 text-[12px] font-medium px-4 py-2 rounded-full transition-all border border-white/40 text-white hover:border-[var(--pa)] hover:bg-[var(--pa)] hover:ring-2 hover:ring-[var(--pa)]/40"
+                    style={{ "--pa": p.accent } as React.CSSProperties}
                   >
-                    {t("discover")} <ArrowRight className="w-3 h-3" />
+                    {p.ctaLabel ?? t("discover")} <ArrowRight className="w-3 h-3" />
                   </Link>
                 )}
               </motion.div>
