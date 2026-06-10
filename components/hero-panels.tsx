@@ -49,6 +49,10 @@ export default function HeroPanels() {
       subtitle: "Retail and e-commerce solutions for everyday needs.",
       img: "/images/trade-bg.png",
       href: "https://desshop.nl",
+      links: [
+        { label: "Shop", href: "https://desshop.nl" },
+        { label: "Trade", href: "https://destrader.com" },
+      ],
       accent: "#f59e0b",
       num: "04",
     },
