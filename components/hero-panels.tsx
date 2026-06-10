@@ -149,7 +149,8 @@ export default function HeroPanels() {
                         href={l.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-[12px] font-medium px-4 py-2 rounded-full transition-all w-fit border border-white/40 text-white hover:bg-white hover:text-black hover:border-white hover:ring-2 hover:ring-white/30"
+                        className="inline-flex items-center gap-2 text-[12px] font-medium px-4 py-2 rounded-full transition-all w-fit border border-white/40 text-white hover:border-[var(--pa)] hover:bg-[var(--pa)] hover:ring-2 hover:ring-[var(--pa)]/40"
+                        style={{ "--pa": p.accent } as React.CSSProperties}
                       >
                         {l.label} <ArrowRight className="w-3 h-3" />
                       </Link>
