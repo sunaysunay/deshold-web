@@ -1,23 +1,14 @@
-"use client"
+﻿"use client"
 import { useState } from "react"
-import { Car, Terminal, ShoppingCart, MapPin, Mail, MessageCircle, Globe, Clock, ArrowRight, CheckCircle } from "lucide-react"
-
-type Division = "cars" | "it" | "shop"
-
-const topics: { id: Division; Icon: React.ElementType; label: string; sub: string; iconBg: string; iconFg: string }[] = [
-  { id: "cars",  Icon: Car,           label: "DES Cars",  sub: "Voertuig kopen / verkopen", iconBg: "bg-[#E1F5EE]", iconFg: "text-[#0F6E56]" },
-  { id: "it",    Icon: Terminal,      label: "DES IT",    sub: "IT / automatisering",        iconBg: "bg-[#EEEDFE]", iconFg: "text-[#534AB7]" },
-  { id: "shop",  Icon: ShoppingCart,  label: "DES Shop",  sub: "Bestelling / product",       iconBg: "bg-[#FAEEDA]", iconFg: "text-[#854F0B]" },
-]
+import { MapPin, Mail, MessageCircle, Globe, Clock, ArrowRight, CheckCircle, Car, Cpu, ShoppingBag } from "lucide-react"
 
 const routes = [
-  { dot: "bg-[#1D9E75]",  label: "DES Cars",  sub: "descampers.com · aanbod bekijken",   href: "https://descampers.com" },
-  { dot: "bg-[#7F77DD]",  label: "DES IT",    sub: "des-it.eu · offerte aanvragen",       href: "/divisies#it" },
-  { dot: "bg-[#EF9F27]",  label: "DES Shop",  sub: "desshop.nl · producten bekijken",    href: "https://desshop.nl" },
+  { dot: "bg-[#1D9E75]",  label: "Automotive",  sub: "descampers.com · aanbod bekijken",  href: "https://descampers.com",  Icon: Car },
+  { dot: "bg-[#7F77DD]",  label: "Tech",         sub: "dessystems.io · offerte aanvragen",  href: "https://dessystems.io",   Icon: Cpu },
+  { dot: "bg-[#EF9F27]",  label: "Commerce",     sub: "desshop.nl · producten bekijken",   href: "https://desshop.nl",      Icon: ShoppingBag },
 ]
 
 export default function ContactPage() {
-  const [division, setDivision] = useState<Division>("cars")
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "", message: "" })
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
@@ -30,7 +21,7 @@ export default function ContactPage() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, division }),
+        body: JSON.stringify({ ...form }),
       })
       if (!res.ok) throw new Error("Versturen mislukt")
       setSent(true)
@@ -41,11 +32,11 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-5 py-10">
+    <div className="max-w-6xl mx-auto px-5 pt-32 pb-16">
       <p className="text-[11px] font-semibold tracking-[0.07em] uppercase text-[#1D9E75] mb-2">Contact</p>
       <h1 className="text-[22px] font-medium text-slate-900 mb-1">Hoe kunnen wij u helpen?</h1>
       <p className="text-[12px] text-slate-500 mb-8 max-w-lg leading-relaxed">
-        Kies het onderwerp dat bij uw vraag past. Zo kunnen wij uw bericht direct doorsturen naar de juiste divisie.
+        Stuur ons een bericht en wij nemen zo snel mogelijk contact met u op.
       </p>
 
       <div className="grid md:grid-cols-[1fr_280px] gap-0 border border-slate-200 rounded-xl overflow-hidden">
@@ -63,24 +54,6 @@ export default function ContactPage() {
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
-              {/* Topic selector */}
-              <div className="grid grid-cols-3 gap-2 mb-6">
-                {topics.map(t => (
-                  <button key={t.id} type="button" onClick={() => setDivision(t.id)}
-                    className={`border rounded-lg p-3 text-left transition-all ${
-                      division === t.id
-                        ? "border-[#1D9E75] border-[1.5px] bg-[#E1F5EE]/40"
-                        : "border-slate-200 hover:border-slate-300 bg-white"
-                    }`}>
-                    <div className={`w-7 h-7 rounded-md flex items-center justify-center mb-2 ${t.iconBg}`}>
-                      <t.Icon className={`w-4 h-4 ${division === t.id ? t.iconFg : "text-slate-400"}`} />
-                    </div>
-                    <div className="text-[11px] font-semibold text-slate-900">{t.label}</div>
-                    <div className="text-[10px] text-slate-400 mt-0.5">{t.sub}</div>
-                  </button>
-                ))}
-              </div>
-
               <div className="grid grid-cols-2 gap-3 mb-3">
                 <Field label="Voornaam">
                   <input required value={form.firstName} onChange={e => setForm(p=>({...p,firstName:e.target.value}))}

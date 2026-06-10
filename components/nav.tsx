@@ -72,7 +72,6 @@ export default function Nav() {
     { href: "/platform",   label: t("platform") },
     { href: "/news",       label: t("news") },
     { href: "/careers",    label: t("careers") },
-    { href: "/contact",    label: t("contact") },
   ]
 
   return (
@@ -88,7 +87,7 @@ export default function Nav() {
       <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-6">
         {/* Logo */}
         <Link href="/" className="flex flex-col leading-none">
-          <span className="text-white font-bold text-2xl tracking-wide">DESHOLD</span>
+          <span className="text-white font-bold text-2xl tracking-wide">DES Group</span>
           <span className="text-[10px] text-slate-400 tracking-[0.15em] uppercase">Building Businesses</span>
         </Link>
 
@@ -132,6 +131,8 @@ export default function Nav() {
             <Link
               key={l.href}
               href={l.href}
+              data-track={"nav_" + l.href.replace("/","").replace("-","_")}
+              data-track-type="nav"
               onClick={() => setOpen(false)}
               className="block py-3 text-sm text-slate-300 border-b border-white/5 last:border-0 hover:text-white"
             >
