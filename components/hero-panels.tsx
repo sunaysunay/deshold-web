@@ -148,8 +148,7 @@ export default function HeroPanels() {
                         href={l.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-[12px] font-medium px-4 py-2 rounded-full transition-all w-fit"
-                        style={{ border: "1px solid rgba(255,255,255,0.4)", color: "white" }}
+                        className="inline-flex items-center gap-2 text-[12px] font-medium px-4 py-2 rounded-full transition-all w-fit border border-white/40 text-white hover:bg-white hover:text-black hover:border-white hover:ring-2 hover:ring-white/30"
                       >
                         {l.label} <ArrowRight className="w-3 h-3" />
                       </Link>
