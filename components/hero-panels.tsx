@@ -27,8 +27,8 @@ export default function HeroPanels() {
       img: "/mobility-bg.jpg",
       href: "https://desmobil.com",
       links: [
-        { label: "Discover Automotive", href: "https://desmobil.com" },
-        { label: "Discover Campers",    href: "https://descampers.com" },
+        { label: "Automotive", href: "https://desmobil.com" },
+        { label: "Campers", href: "https://descampers.com" },
       ],
       accent: "#1D9E75",
       num: "02",
@@ -141,7 +141,7 @@ export default function HeroPanels() {
                   {p.subtitle}
                 </p>
                 {p.links ? (
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-row flex-wrap gap-2">
                     {p.links.map(l => (
                       <Link
                         key={l.href}
