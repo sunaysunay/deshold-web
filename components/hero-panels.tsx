@@ -50,7 +50,7 @@ export default function HeroPanels() {
       img: "/images/trade-bg.png",
       href: "https://desshop.nl",
       links: [
-        { label: "Shop", href: "https://desshop.nl" },
+        { label: "Shop", href: "https://desshop.com" },
         { label: "Trade", href: "https://destrader.com" },
       ],
       accent: "#f59e0b",
