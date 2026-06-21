@@ -1,8 +1,10 @@
 import HeroPanels from "@/components/hero-panels"
 import Link from "next/link"
+import { getTranslations } from "next-intl/server"
 import { ArrowRight, Car, Terminal, ShoppingCart, Tent, Bot, Globe, BarChart2, Zap, ShieldCheck, Users } from "lucide-react"
 
 // ── Platform dashboard mockup ─────────────────────────────────────────────────
+// Stylized product preview — kept in English on purpose (brand UI mock).
 function DashboardMockup() {
   return (
     <div className="bg-slate-900 rounded-xl border border-slate-700/50 overflow-hidden shadow-2xl text-xs">
@@ -57,80 +59,50 @@ function DashboardMockup() {
   )
 }
 
-// ── Businesses ────────────────────────────────────────────────────────────────
-const businesses = [
-  {
-    Icon: Tent, name: "Campers",
-    desc: "Campers, Caravans, Outdoor",
-    href: "https://descampers.com", label: "Visit Site",
-    img: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=80",
-    color: "#1D9E75",
-  },
-  {
-    Icon: Car, name: "Automotive",
-    desc: "Vehicle sourcing, trading and sales across Europe.",
-    href: "https://desmobil.com", label: "Visit Site",
-    img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80",
-    color: "#3B82F6",
-  },
-  {
-    Icon: Terminal, name: "TECH",
-    desc: "IT consultancy, digital solutions and business automation.",
-    href: "/businesses#it", label: "Visit Site",
-    img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80",
-    color: "#8B5CF6",
-  },
-  {
-    Icon: ShoppingCart, name: "Shop",
-    desc: "Retail and e-commerce solutions for everyday needs.",
-    href: "https://desshop.nl", label: "Visit Site",
-    img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600&q=80",
-    color: "#F59E0B",
-  },
-]
+export default async function HomePage() {
+  const t = await getTranslations()
 
-// ── Platform features ─────────────────────────────────────────────────────────
-const features = [
-  { Icon: Users,      title: "Leads & Incident Management",  desc: "Manage leads and customers in one place." },
-  { Icon: Globe,      title: "Websites & Listings", desc: "Manage multiple websites and listings seamlessly." },
-  { Icon: BarChart2,  title: "Analytics & Reporting",desc: "Real-time insights for better decisions." },
-  { Icon: Bot,        title: "Automation",          desc: "Automate workflows and save valuable time." },
-  { Icon: Users,      title: "AI | ERP | MES | CRM | DevOps | E-Commerce | Marketing",  desc: "Enterprise Solutions" },
-  { Icon: ShieldCheck,title: "Secure & Scalable",   desc: "Enterprise-grade security and scalable infrastructure." },
-]
+  // ── Businesses ──────────────────────────────────────────────────────────────
+  const businesses = [
+    { Icon: Tent,         name: "Campers",    href: "https://descampers.com", color: "#1D9E75",
+      img: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=80" },
+    { Icon: Car,          name: "Automotive", href: "https://desmobil.com",   color: "#3B82F6",
+      img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" },
+    { Icon: Terminal,     name: "TECH",       href: "/businesses#it",         color: "#8B5CF6",
+      img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80" },
+    { Icon: ShoppingCart, name: "Shop",       href: "https://desshop.nl",     color: "#F59E0B",
+      img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600&q=80" },
+  ]
 
-// ── News ──────────────────────────────────────────────────────────────────────
-const news = [
-  {
-    cat: "Company", date: "May 10, 2024",
-    title: "DESHold Opens New Headquarters",
-    desc: "A new chapter in our growth with a state-of-the-art headquarters in Europe.",
-    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
-  },
-  {
-    cat: "Platform", date: "May 2, 2024",
-    title: "DES Platform — New Analytics Module",
-    desc: "Advanced reporting and real-time insights for better business decisions.",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
-  },
-  {
-    cat: "Business", date: "Apr 25, 2024",
-    title: "DES Cars Expands in European Market",
-    desc: "Strengthening our presence with new partnerships across key countries.",
-    img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=80",
-  },
-]
+  // ── Platform features ─────────────────────────────────────────────────────────
+  const features = [
+    { Icon: Users,       title: t("Platform.crm"),        desc: t("Platform.crm_desc") },
+    { Icon: Globe,       title: t("Platform.websites"),   desc: t("Platform.websites_desc") },
+    { Icon: BarChart2,   title: t("Platform.analytics"),  desc: t("Platform.analytics_desc") },
+    { Icon: Bot,         title: t("Platform.automation"), desc: t("Platform.automation_desc") },
+    { Icon: Users,       title: "AI | ERP | MES | CRM | DevOps | E-Commerce | Marketing", desc: t("Platform.enterprise") },
+    { Icon: ShieldCheck, title: t("Platform.secure"),     desc: t("Platform.secure_desc") },
+  ]
 
-// ── Stats ─────────────────────────────────────────────────────────────────────
-const stats = [
-  { val: "4+",        label: "Business Units" },
-  { val: "15+",       label: "Years Experience" },
-  { val: "100+",      label: "Team Members" },
-  { val: "1 Platform",label: "Endless Opportunities" },
-  { val: "Europe",    label: "Our Focus" },
-]
+  // ── News ──────────────────────────────────────────────────────────────────────
+  const news = [
+    { cat: t("News.hq_cat"),       date: "May 10, 2024", title: t("News.hq_title"),       desc: t("News.hq_desc"),
+      img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" },
+    { cat: t("News.platform_cat"), date: "May 2, 2024",  title: t("News.platform_title"), desc: t("News.platform_desc"),
+      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" },
+    { cat: t("News.cars_cat"),     date: "Apr 25, 2024", title: t("News.cars_title"),     desc: t("News.cars_desc"),
+      img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=80" },
+  ]
 
-export default function HomePage() {
+  // ── Stats ─────────────────────────────────────────────────────────────────────
+  const stats = [
+    { val: "4+",         label: t("Stats.units") },
+    { val: "15+",        label: t("Stats.experience") },
+    { val: "100+",       label: t("Stats.team") },
+    { val: "1 Platform", label: t("Stats.platform") },
+    { val: "Europe",     label: t("Stats.focus") },
+  ]
+
   return (
     <>
       {/* Hero — full screen expanding panels */}
@@ -140,13 +112,12 @@ export default function HomePage() {
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-blue-600 mb-3">DES Platform</p>
+            <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-blue-600 mb-3">{t("Platform.eyebrow")}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-5 leading-tight">
-              Our Proprietary<br />Business Operating Platform
+              {t("Platform.title")}
             </h2>
             <p className="text-[14px] text-slate-500 leading-relaxed mb-8 max-w-md">
-              DES Platform connects customers, websites, data and operations in one intelligent ecosystem.
-              Built to drive growth, efficiency and long-term value across all our businesses.
+              {t("Platform.desc")}
             </p>
             <div className="grid grid-cols-2 gap-3 mb-8">
               {features.map(f => (
@@ -163,12 +134,12 @@ export default function HomePage() {
             </div>
             <Link href="/platform"
               className="inline-flex items-center gap-2 bg-blue-600 text-white text-[13px] font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-colors">
-              Explore DES Platform <ArrowRight className="w-4 h-4" />
+              {t("Platform.cta")} <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
           <div className="lg:pl-8">
             <DashboardMockup />
-            <p className="text-center text-[11px] text-slate-400 mt-3">View Platform Features →</p>
+            <p className="text-center text-[11px] text-slate-400 mt-3">{t("Platform.view_features")} →</p>
           </div>
         </div>
       </section>
@@ -176,9 +147,9 @@ export default function HomePage() {
       {/* Businesses */}
       <section className="bg-slate-50 py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-blue-600 mb-2 text-center">Our Businesses</p>
-          <h2 className="text-3xl font-bold text-slate-900 text-center mb-2">Different Businesses. One Vision.</h2>
-          <p className="text-slate-500 text-center mb-12 text-[14px]">We build, operate and grow businesses across multiple industries.</p>
+          <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-blue-600 mb-2 text-center">{t("Businesses.eyebrow")}</p>
+          <h2 className="text-3xl font-bold text-slate-900 text-center mb-2">{t("Businesses.title")}</h2>
+          <p className="text-slate-500 text-center mb-12 text-[14px]">{t("Businesses.subtitle")}</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {businesses.map(b => (
               <div key={b.name} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
@@ -197,7 +168,7 @@ export default function HomePage() {
                   <a href={b.href}
                     className="inline-flex items-center gap-1 text-[12px] font-semibold hover:gap-2 transition-all"
                     style={{ color: b.color }}>
-                    {b.label} <ArrowRight className="w-3 h-3" />
+                    {t("Businesses.visit")} <ArrowRight className="w-3 h-3" />
                   </a>
                 </div>
               </div>
@@ -206,7 +177,7 @@ export default function HomePage() {
           <div className="text-center mt-8">
             <Link href="/businesses"
               className="inline-flex items-center gap-1.5 text-[13px] text-blue-600 font-semibold hover:gap-3 transition-all">
-              View All Businesses <ArrowRight className="w-4 h-4" />
+              {t("Businesses.view_all")} <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -231,11 +202,11 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-end justify-between mb-10">
             <div>
-              <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-blue-600 mb-2">News & Insights</p>
-              <h2 className="text-3xl font-bold text-slate-900">Latest News & Insights</h2>
+              <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-blue-600 mb-2">{t("News.eyebrow")}</p>
+              <h2 className="text-3xl font-bold text-slate-900">{t("News.title")}</h2>
             </div>
             <Link href="/news" className="text-[13px] text-blue-600 font-semibold flex items-center gap-1 hover:gap-2 transition-all">
-              View All News <ArrowRight className="w-4 h-4" />
+              {t("News.view_all")} <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -265,14 +236,14 @@ export default function HomePage() {
               <div className="w-6 h-6 rounded-full border border-white/30 flex items-center justify-center">
                 <Zap className="w-3.5 h-3.5 text-white" />
               </div>
-              <span className="text-white/60 text-[12px]">Partner with DES Group</span>
+              <span className="text-white/60 text-[12px]">{t("CTA.label")}</span>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Let's Build the Future Together</h2>
-            <p className="text-slate-400 text-[13px]">We are always open to new partnerships, opportunities and ideas.</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{t("CTA.title")}</h2>
+            <p className="text-slate-400 text-[13px]">{t("CTA.subtitle")}</p>
           </div>
           <Link href="/contact"
             className="shrink-0 flex items-center gap-2 bg-white text-slate-900 text-[14px] font-bold px-7 py-3.5 rounded-xl hover:bg-slate-100 transition-colors">
-            Get In Touch <ArrowRight className="w-4 h-4" />
+            {t("CTA.button")} <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
