@@ -127,13 +127,6 @@ export default function Nav() {
           >
             {t("about")}
           </Link>
-          <Link
-            href="/contact"
-            onClick={() => setOpen(false)}
-            className="bg-white text-slate-900 text-[12px] font-semibold px-3 py-1.5 rounded-lg"
-          >
-            {t("cta")}
-          </Link>
           <button className="p-1.5 text-white" onClick={() => setOpen(v => !v)}>
             {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
