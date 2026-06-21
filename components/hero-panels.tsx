@@ -5,11 +5,81 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { useTranslations } from "next-intl"
 
+type PanelLink = { label: string; href: string }
+type Panel = {
+  title: string; shortTitle: string; subtitle: string; img: string; href: string
+  accent: string; num: string; eyebrow?: string; ctaLabel?: string; links?: PanelLink[]
+}
+
+// Shared content block (eyebrow + title + subtitle + CTA) used by both the
+// desktop active panel and every mobile stacked card.
+function PanelContent({ p, discover }: { p: Panel; discover: string }) {
+  return (
+    <>
+      {p.eyebrow && (
+        <div className="mb-4">
+          <div className="font-bold leading-tight" style={{ fontSize: "28px", fontFamily: "Syne, sans-serif", letterSpacing: "-0.02em", color: "rgba(255,255,255,0.85)" }}>
+            {p.eyebrow}
+          </div>
+          <div className="font-medium mt-1" style={{ fontSize: "clamp(15px,1.4vw,18px)", color: "rgba(56,189,248,0.85)", letterSpacing: "0.04em" }}>
+            AI | ERP | MES | CRM | DevOps | E-Commerce | Marketing
+          </div>
+          <div style={{ height: "1px", width: "140px", background: "linear-gradient(to right, rgba(255,255,255,0.7), rgba(255,255,255,0.0))", marginTop: "12px" }} />
+        </div>
+      )}
+
+      <motion.h2
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="font-bold leading-tight mb-3"
+        style={{ fontSize: "28px", fontFamily: "Syne, sans-serif", letterSpacing: "-0.02em", color: "rgba(255,255,255,0.92)" }}
+      >
+        {p.title}
+      </motion.h2>
+
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35, delay: 0.05 }}
+      >
+        <p className="text-[13px] leading-relaxed mb-5 max-w-xs" style={{ color: "rgba(255,255,255,0.7)" }}>
+          {p.subtitle}
+        </p>
+        {p.links ? (
+          <div className="flex flex-row flex-wrap gap-2">
+            {p.links.map(l => (
+              <Link
+                key={l.href}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[12px] font-medium px-4 py-2 rounded-full transition-all w-fit border border-white/40 text-white hover:border-[var(--pa)] hover:bg-[var(--pa)] hover:ring-2 hover:ring-[var(--pa)]/40"
+                style={{ "--pa": p.accent } as React.CSSProperties}
+              >
+                {l.label} <ArrowRight className="w-3 h-3" />
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <Link
+            href={p.href}
+            className="inline-flex items-center gap-2 text-[12px] font-medium px-4 py-2 rounded-full transition-all border border-white/40 text-white hover:border-[var(--pa)] hover:bg-[var(--pa)] hover:ring-2 hover:ring-[var(--pa)]/40"
+            style={{ "--pa": p.accent } as React.CSSProperties}
+          >
+            {p.ctaLabel ?? discover} <ArrowRight className="w-3 h-3" />
+          </Link>
+        )}
+      </motion.div>
+    </>
+  )
+}
+
 export default function HeroPanels() {
   const t = useTranslations("Hero")
   const [active, setActive] = useState(0)
 
-  const panels = [
+  const panels: Panel[] = [
     {
       title: t("platform_title"),
       shortTitle: "Digital Platform",
@@ -59,121 +129,82 @@ export default function HeroPanels() {
   ]
 
   return (
-    <section className="flex overflow-hidden" style={{ height: "62vh", minHeight: "480px" }}>
-      {panels.map((p, i) => (
-        <motion.div
-          key={p.title}
-          onMouseEnter={() => setActive(i)}
-          onClick={() => setActive(i)}
-          animate={{ flex: active === i ? 3 : 1 }}
-          transition={{ duration: 0.55, ease: "easeInOut" }}
-          className="relative cursor-pointer overflow-hidden"
-        >
-          {/* Background image */}
+    <>
+      {/* ── Desktop (lg+): expanding panel row ───────────────────────────────── */}
+      <section className="hidden lg:flex overflow-hidden" style={{ height: "62vh", minHeight: "480px" }}>
+        {panels.map((p, i) => (
           <motion.div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${p.img})` }}
-            animate={{ scale: active === i ? 1.04 : 1.1 }}
-            transition={{ duration: 0.7 }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
+            key={p.title}
+            onMouseEnter={() => setActive(i)}
+            onClick={() => setActive(i)}
+            animate={{ flex: active === i ? 3 : 1 }}
+            transition={{ duration: 0.55, ease: "easeInOut" }}
+            className="relative cursor-pointer overflow-hidden"
+          >
+            <motion.div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${p.img})` }}
+              animate={{ scale: active === i ? 1.04 : 1.1 }}
+              transition={{ duration: 0.7 }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
 
-          {/* Active accent line */}
-          <motion.div
-            className="absolute bottom-0 left-0 h-0.5 w-full"
-            style={{ background: p.accent }}
-            animate={{ opacity: active === i ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-          />
+            <motion.div
+              className="absolute bottom-0 left-0 h-0.5 w-full"
+              style={{ background: p.accent }}
+              animate={{ opacity: active === i ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
+            />
 
-          {/* Panel number */}
-          <div className="absolute top-8 right-5 text-[11px] font-mono" style={{ color: "rgba(255,255,255,0.2)" }}>{p.num}</div>
+            <div className="absolute top-8 right-5 text-[11px] font-mono" style={{ color: "rgba(255,255,255,0.2)" }}>{p.num}</div>
 
-          {/* INACTIVE — vertical text centered in panel */}
-          {active !== i && (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span
-                style={{
-                  writingMode: "vertical-rl",
-                  textOrientation: "mixed",
-                  transform: "rotate(180deg)",
-                  fontSize: "clamp(18px, 2.5vw, 28px)",
-                  fontFamily: "Syne, sans-serif",
-                  fontWeight: 700,
-                  letterSpacing: "0.12em",
-                  color: "rgba(255,255,255,0.85)",
-                  textTransform: "uppercase",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {p.shortTitle}
-              </span>
+            {/* INACTIVE — vertical text centered in panel */}
+            {active !== i && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span
+                  style={{
+                    writingMode: "vertical-rl",
+                    textOrientation: "mixed",
+                    transform: "rotate(180deg)",
+                    fontSize: "clamp(18px, 2.5vw, 28px)",
+                    fontFamily: "Syne, sans-serif",
+                    fontWeight: 700,
+                    letterSpacing: "0.12em",
+                    color: "rgba(255,255,255,0.85)",
+                    textTransform: "uppercase",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {p.shortTitle}
+                </span>
+              </div>
+            )}
+
+            {/* ACTIVE — full content */}
+            {active === i && (
+              <div className="absolute bottom-10 left-8 right-8 z-10 text-white">
+                <PanelContent p={p} discover={t("discover")} />
+              </div>
+            )}
+          </motion.div>
+        ))}
+      </section>
+
+      {/* ── Mobile / tablet (< lg): vertically stacked cards ─────────────────── */}
+      <section className="lg:hidden flex flex-col">
+        {panels.map(p => (
+          <div key={p.title} className="relative overflow-hidden flex items-end min-h-[400px]">
+            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${p.img})` }} />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/25" />
+            <div className="absolute top-6 right-5 text-[11px] font-mono" style={{ color: "rgba(255,255,255,0.25)" }}>{p.num}</div>
+            <div className="absolute bottom-0 left-0 h-0.5 w-full" style={{ background: p.accent }} />
+            <div className="relative z-10 w-full px-6 pt-10 pb-9 text-white">
+              <PanelContent p={p} discover={t("discover")} />
             </div>
-          )}
-
-          {/* ACTIVE — full content */}
-          {active === i && (
-            <div className="absolute bottom-10 left-8 right-8 z-10 text-white">
-              {p.eyebrow && (
-                <div className="mb-4">
-                  <div className="font-bold leading-tight" style={{ fontSize: "28px", fontFamily: "Syne, sans-serif", letterSpacing: "-0.02em", color: "rgba(255,255,255,0.85)" }}>
-                    {p.eyebrow}
-                  </div>
-                  <div className="font-medium mt-1" style={{ fontSize: "clamp(15px,1.4vw,18px)", color: "rgba(56,189,248,0.85)", letterSpacing: "0.04em" }}>
-                    AI | ERP | MES | CRM | DevOps | E-Commerce | Marketing
-                  </div>
-                  <div style={{ height: "1px", width: "140px", background: "linear-gradient(to right, rgba(255,255,255,0.7), rgba(255,255,255,0.0))", marginTop: "12px" }} />
-                </div>
-              )}
-
-              <motion.h2
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="font-bold leading-tight mb-3"
-                style={{ fontSize: "28px", fontFamily: "Syne, sans-serif", letterSpacing: "-0.02em", color: "rgba(255,255,255,0.92)" }}
-              >
-                {p.title}
-              </motion.h2>
-
-              <motion.div
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.35, delay: 0.05 }}
-              >
-                <p className="text-[13px] leading-relaxed mb-5 max-w-xs" style={{ color: "rgba(255,255,255,0.7)" }}>
-                  {p.subtitle}
-                </p>
-                {p.links ? (
-                  <div className="flex flex-row flex-wrap gap-2">
-                    {p.links.map(l => (
-                      <Link
-                        key={l.href}
-                        href={l.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-[12px] font-medium px-4 py-2 rounded-full transition-all w-fit border border-white/40 text-white hover:border-[var(--pa)] hover:bg-[var(--pa)] hover:ring-2 hover:ring-[var(--pa)]/40"
-                        style={{ "--pa": p.accent } as React.CSSProperties}
-                      >
-                        {l.label} <ArrowRight className="w-3 h-3" />
-                      </Link>
-                    ))}
-                  </div>
-                ) : (
-                  <Link
-                    href={p.href}
-                    className="inline-flex items-center gap-2 text-[12px] font-medium px-4 py-2 rounded-full transition-all border border-white/40 text-white hover:border-[var(--pa)] hover:bg-[var(--pa)] hover:ring-2 hover:ring-[var(--pa)]/40"
-                    style={{ "--pa": p.accent } as React.CSSProperties}
-                  >
-                    {p.ctaLabel ?? t("discover")} <ArrowRight className="w-3 h-3" />
-                  </Link>
-                )}
-              </motion.div>
-            </div>
-          )}
-        </motion.div>
-      ))}
-    </section>
+          </div>
+        ))}
+      </section>
+    </>
   )
 }
