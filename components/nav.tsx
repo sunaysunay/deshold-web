@@ -118,10 +118,26 @@ export default function Nav() {
           </Link>
         </div>
 
-        {/* Mobile toggle */}
-        <button className="lg:hidden p-1.5 text-white" onClick={() => setOpen(v => !v)}>
-          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Mobile top-bar controls */}
+        <div className="lg:hidden flex items-center gap-2">
+          <Link
+            href="/about"
+            onClick={() => setOpen(false)}
+            className="text-[12px] font-medium text-slate-200 hover:text-white px-1"
+          >
+            {t("about")}
+          </Link>
+          <Link
+            href="/contact"
+            onClick={() => setOpen(false)}
+            className="bg-white text-slate-900 text-[12px] font-semibold px-3 py-1.5 rounded-lg"
+          >
+            {t("cta")}
+          </Link>
+          <button className="p-1.5 text-white" onClick={() => setOpen(v => !v)}>
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
