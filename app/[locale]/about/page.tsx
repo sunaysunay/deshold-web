@@ -27,9 +27,9 @@ export default async function AboutPage() {
 
   const facts = [
     { label: t("fact_founded"), value: "2025" },
-    { label: t("fact_hq"),      value: "Dordrecht, Netherlands" },
-    { label: t("fact_markets"), value: "NL · BE · DE · FR · TR" },
-    { label: t("fact_stack"),   value: "Next.js · Supabase · AI" },
+    { label: t("fact_hq"),      value: "Roosendaal, Netherlands" },
+    { label: t("fact_markets"), value: "Global World Wide" },
+    { label: t("fact_stack"),   value: "AI Automated" },
     { label: t("fact_infra"),   value: "Own VPS · DES BOP platform" },
   ]
 
