@@ -276,5 +276,11 @@
     "cross_privacy": "Gizlilik Politikasi",
     "cross_terms": "Hizmet Sartlari",
     "cross_cookies": "Cerez Politikasi"
+  },
+  "CookieConsent": {
+    "title": "Çerezler ve Gizlilik",
+    "description": "Deneyiminizi geliştirmek ve web sitesi trafiğini analiz etmek için çerezler kullanıyoruz. \"Kabul Et\"e tıklayarak çerez kullanımımızı kabul etmiş olursunuz.",
+    "accept": "Kabul Et",
+    "decline": "Reddet"
   }
 }

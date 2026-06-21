@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { routing } from '@/src/i18n/routing'
 import Nav from '@/components/nav'
 import Footer from '@/components/footer'
+import { CookieConsent } from '@/components/cookie-consent'
 import '../globals.css'
 
 export default async function LocaleLayout({
@@ -23,6 +24,7 @@ export default async function LocaleLayout({
           <Nav />
           <main>{children}</main>
           <Footer />
+          <CookieConsent />
         </NextIntlClientProvider>
       </body>
     </html>

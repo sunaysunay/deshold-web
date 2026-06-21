@@ -276,5 +276,11 @@
     "cross_privacy": "Privacybeleid",
     "cross_terms": "Servicevoorwaarden",
     "cross_cookies": "Cookiebeleid"
+  },
+  "CookieConsent": {
+    "title": "Cookies & Privacy",
+    "description": "Wij gebruiken cookies om uw ervaring te verbeteren en websiteverkeer te analyseren. Door op \"Accepteren\" te klikken, gaat u akkoord met ons gebruik van cookies.",
+    "accept": "Accepteren",
+    "decline": "Weigeren"
   }
 }

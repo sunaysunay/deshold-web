@@ -276,5 +276,11 @@
     "cross_privacy": "Privacy Policy",
     "cross_terms": "Terms of Service",
     "cross_cookies": "Cookie Policy"
+  },
+  "CookieConsent": {
+    "title": "Cookies & Privacy",
+    "description": "We use cookies to enhance your experience and analyze website traffic. By clicking \"Accept\", you agree to our use of cookies.",
+    "accept": "Accept",
+    "decline": "Decline"
   }
 }

@@ -276,5 +276,11 @@
     "cross_privacy": "Politique de Confidentialite",
     "cross_terms": "Conditions d Utilisation",
     "cross_cookies": "Politique de Cookies"
+  },
+  "CookieConsent": {
+    "title": "Cookies & Confidentialité",
+    "description": "Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic du site Web. En cliquant sur « Accepter », vous acceptez notre utilisation des cookies.",
+    "accept": "Accepter",
+    "decline": "Refuser"
   }
 }
