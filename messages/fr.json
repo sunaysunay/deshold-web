@@ -128,7 +128,20 @@
     "response_sub": "Nous répondons aussi vite que possible, généralement dans les 24 heures les jours ouvrables.",
     "sent_title": "Message envoyé!",
     "sent_desc": "Nous avons reçu votre message et répondrons dans un jour ouvrable.",
-    "send_another": "Envoyer un autre message"
+    "send_another": "Envoyer un autre message",
+    "form_subtitle": "Envoyez-nous un message et nous vous répondrons dès que possible.",
+    "sending": "Envoi en cours…",
+    "whatsapp": "WhatsApp disponible\nlun–ven 09:00–18:00",
+    "err_failed": "Échec de l'envoi",
+    "err_generic": "Une erreur s'est produite",
+    "address": "Veenen 22, 4703 Roosendaal, Pays-Bas",
+    "privacy_link": "déclaration de confidentialité",
+    "route1_label": "Automobile",
+    "route1_sub": "descampers.com · voir notre offre",
+    "route2_label": "Tech",
+    "route2_sub": "dessystems.io · demander un devis",
+    "route3_label": "Commerce",
+    "route3_sub": "desshop.nl · voir les produits"
   },
   "About": {
     "eyebrow": "A Propos de DESHold",

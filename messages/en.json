@@ -128,7 +128,20 @@
     "response_sub": "We respond as quickly as possible, usually within 24 hours on business days.",
     "sent_title": "Message sent!",
     "sent_desc": "We have received your message and will respond within one business day.",
-    "send_another": "Send another message"
+    "send_another": "Send another message",
+    "form_subtitle": "Send us a message and we'll get back to you as soon as possible.",
+    "sending": "Sending…",
+    "whatsapp": "WhatsApp available\nMon–Fri 09:00–18:00",
+    "err_failed": "Sending failed",
+    "err_generic": "Something went wrong",
+    "address": "Veenen 22, 4703 Roosendaal, Netherlands",
+    "privacy_link": "privacy statement",
+    "route1_label": "Automotive",
+    "route1_sub": "descampers.com · view our range",
+    "route2_label": "Tech",
+    "route2_sub": "dessystems.io · request a quote",
+    "route3_label": "Commerce",
+    "route3_sub": "desshop.nl · view products"
   },
   "About": {
     "eyebrow": "About DESHold",

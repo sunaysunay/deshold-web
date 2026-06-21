@@ -128,7 +128,20 @@
     "response_sub": "Mümkün olan en kısa sürede yanıt veriyoruz, genellikle iş günlerinde 24 saat içinde.",
     "sent_title": "Mesaj gönderildi!",
     "sent_desc": "Mesajınızı aldık ve bir iş günü içinde yanıt vereceğiz.",
-    "send_another": "Başka bir mesaj gönder"
+    "send_another": "Başka bir mesaj gönder",
+    "form_subtitle": "Bize bir mesaj gönderin, en kısa sürede size geri dönelim.",
+    "sending": "Gönderiliyor…",
+    "whatsapp": "WhatsApp mevcut\nPzt–Cum 09:00–18:00",
+    "err_failed": "Gönderim başarısız",
+    "err_generic": "Bir şeyler ters gitti",
+    "address": "Veenen 22, 4703 Roosendaal, Hollanda",
+    "privacy_link": "gizlilik beyanı",
+    "route1_label": "Otomotiv",
+    "route1_sub": "descampers.com · ürünleri inceleyin",
+    "route2_label": "Teknoloji",
+    "route2_sub": "dessystems.io · teklif isteyin",
+    "route3_label": "Ticaret",
+    "route3_sub": "desshop.nl · ürünleri görüntüleyin"
   },
   "About": {
     "eyebrow": "DESHold Hakkinda",

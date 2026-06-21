@@ -128,7 +128,20 @@
     "response_sub": "Wij reageren zo snel mogelijk, doorgaans binnen 24 uur op werkdagen.",
     "sent_title": "Bericht verzonden!",
     "sent_desc": "Wij hebben uw bericht ontvangen en reageren binnen één werkdag.",
-    "send_another": "Nog een vraag sturen"
+    "send_another": "Nog een vraag sturen",
+    "form_subtitle": "Stuur ons een bericht en wij nemen zo snel mogelijk contact met u op.",
+    "sending": "Bezig met verzenden…",
+    "whatsapp": "WhatsApp beschikbaar\nma–vr 09:00–18:00",
+    "err_failed": "Versturen mislukt",
+    "err_generic": "Er ging iets fout",
+    "address": "Veenen 22, 4703 Roosendaal, Nederland",
+    "privacy_link": "privacyverklaring",
+    "route1_label": "Automotive",
+    "route1_sub": "descampers.com · aanbod bekijken",
+    "route2_label": "Tech",
+    "route2_sub": "dessystems.io · offerte aanvragen",
+    "route3_label": "Commerce",
+    "route3_sub": "desshop.nl · producten bekijken"
   },
   "About": {
     "eyebrow": "Over DESHold",
