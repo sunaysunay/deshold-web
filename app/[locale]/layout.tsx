@@ -5,6 +5,7 @@ import { routing } from '@/src/i18n/routing'
 import Nav from '@/components/nav'
 import Footer from '@/components/footer'
 import { CookieConsent } from '@/components/cookie-consent'
+import { ThemeProvider } from "@/components/theme-provider"
 import '../globals.css'
 
 export default async function LocaleLayout({
@@ -18,14 +19,14 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) notFound()
   const messages = await getMessages()
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body className='min-h-screen bg-white text-slate-900 antialiased'>
-        <NextIntlClientProvider messages={messages}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange><NextIntlClientProvider messages={messages}>
           <Nav />
           <main>{children}</main>
           <Footer />
           <CookieConsent />
-        </NextIntlClientProvider>
+        </NextIntlClientProvider></ThemeProvider>
       </body>
     </html>
   )

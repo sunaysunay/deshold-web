@@ -15,3 +15,31 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--font-geist-sans, system-ui, sans-serif); }
+
+/* ── Dark mode (next-themes class strategy) ── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+.dark { color-scheme: dark; }
+.dark body { background: #0a1018; color: #e8eef7; }
+
+/* light surfaces -> dark */
+.dark .bg-white { background-color: #0c1422 !important; }
+.dark .bg-white\/90 { background-color: rgba(12,20,34,0.92) !important; }
+.dark .bg-white\/5 { background-color: rgba(255,255,255,0.05) !important; }
+.dark .bg-slate-50, .dark .bg-slate-50\/50 { background-color: #0f1a2b !important; }
+.dark .bg-slate-100 { background-color: #13203a !important; }
+.dark .bg-emerald-50 { background-color: rgba(29,158,117,0.12) !important; }
+
+/* dark text -> light */
+.dark .text-slate-900 { color: #e8eef7 !important; }
+.dark .text-slate-800 { color: #dde6f2 !important; }
+.dark .text-slate-700 { color: #c7d3e3 !important; }
+.dark .text-slate-600 { color: #aab9ce !important; }
+.dark .text-slate-500 { color: #93a3bb !important; }
+.dark .text-emerald-700 { color: #34d399 !important; }
+
+/* borders */
+.dark .border-slate-200 { border-color: rgba(255,255,255,0.10) !important; }
+.dark .border-slate-100 { border-color: rgba(255,255,255,0.07) !important; }
+.dark .border-slate-300 { border-color: rgba(255,255,255,0.14) !important; }
+.dark .border-emerald-200 { border-color: rgba(52,211,153,0.30) !important; }
