@@ -5,6 +5,7 @@ import { routing } from '@/src/i18n/routing'
 import Nav from '@/components/nav'
 import Footer from '@/components/footer'
 import { CookieConsent } from '@/components/cookie-consent'
+import { ClickTracker } from '@/components/click-tracker'
 import { ThemeProvider } from "@/components/theme-provider"
 import '../globals.css'
 
@@ -25,7 +26,7 @@ export default async function LocaleLayout({
           <Nav />
           <main>{children}</main>
           <Footer />
-          <CookieConsent />
+          <CookieConsent /><ClickTracker />
         </NextIntlClientProvider></ThemeProvider>
       </body>
     </html>
