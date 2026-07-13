@@ -10,14 +10,14 @@ export default async function HomePage() {
 
   // ── Businesses ──────────────────────────────────────────────────────────────
   const businesses = [
-    { Icon: Tent,         name: "Campers",    href: "https://descampers.com", color: "#1D9E75",
-      img: "/images/campers-card.jpg" },
-    { Icon: Car,          name: "Mobil",      href: "https://desmobil.com",   color: "#3B82F6",
-      img: "/images/mobil-card.jpg" },
     { Icon: Terminal,     name: "TECH",       href: "/businesses#it",         color: "#8B5CF6",
       img: "/images/tech-card.jpg" },
+    { Icon: Car,          name: "Mobil",      href: "https://desmobil.com",   color: "#3B82F6",
+      img: "/images/mobil-card.jpg" },
+    { Icon: Tent,         name: "Campers",    href: "https://descampers.com", color: "#1D9E75",
+      img: "/images/campers-card.jpg" },
     { Icon: ShoppingCart, name: "Shop",       href: "https://desshop.nl",     color: "#F59E0B",
-      img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600&q=80" },
+      img: "/images/shop-card.jpg" },
   ]
 
   // ── Platform features ─────────────────────────────────────────────────────────
@@ -32,12 +32,12 @@ export default async function HomePage() {
 
   // ── News ──────────────────────────────────────────────────────────────────────
   const news = [
-    { cat: t("News.hq_cat"),       date: "May 10, 2024", title: t("News.hq_title"),       desc: t("News.hq_desc"),
-      img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" },
-    { cat: t("News.platform_cat"), date: "May 2, 2024",  title: t("News.platform_title"), desc: t("News.platform_desc"),
+    { cat: t("News.hq_cat"),       date: "May 10, 2025", title: t("News.hq_title"),       desc: t("News.hq_desc"),
+      img: "/images/hq-news.jpg" },
+    { cat: t("News.platform_cat"), date: "May 2, 2025",  title: t("News.platform_title"), desc: t("News.platform_desc"),
       img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" },
-    { cat: t("News.cars_cat"),     date: "Apr 25, 2024", title: t("News.cars_title"),     desc: t("News.cars_desc"),
-      img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=80" },
+    { cat: t("News.cars_cat"),     date: "Apr 25, 2025", title: t("News.cars_title"),     desc: t("News.cars_desc"),
+      img: "/images/campers-news.jpg" },
   ]
 
   // ── Stats ─────────────────────────────────────────────────────────────────────
