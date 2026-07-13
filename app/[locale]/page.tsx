@@ -3,61 +3,7 @@ import Link from "next/link"
 import { getTranslations } from "next-intl/server"
 import { ArrowRight, Car, Terminal, ShoppingCart, Tent, Bot, Globe, BarChart2, Zap, ShieldCheck, Users } from "lucide-react"
 
-// ── Platform dashboard mockup ─────────────────────────────────────────────────
-// Stylized product preview — kept in English on purpose (brand UI mock).
-function DashboardMockup() {
-  return (
-    <div className="bg-slate-900 rounded-xl border border-slate-700/50 overflow-hidden shadow-2xl text-xs">
-      {/* Top bar */}
-      <div className="flex items-center gap-2 px-4 py-3 bg-slate-800/80 border-b border-slate-700/50">
-        <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-        <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-        <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-        <span className="ml-3 text-slate-400 text-[11px]">DES Platform — Dashboard</span>
-      </div>
-      <div className="flex h-64">
-        {/* Sidebar */}
-        <div className="w-36 bg-slate-950 border-r border-slate-700/50 p-3 flex flex-col gap-1">
-          <div className="text-[10px] font-bold text-slate-400 px-2 mb-2">DES PLATFORM</div>
-          {["Dashboard","Leads","Customers","Vehicles","Websites","Listings","Analytics","Settings"].map((item, i) => (
-            <div key={item} className={`px-2 py-1.5 rounded text-[10px] ${i === 0 ? "bg-blue-600 text-white" : "text-slate-500 hover:text-slate-300"}`}>
-              {item}
-            </div>
-          ))}
-        </div>
-        {/* Main */}
-        <div className="flex-1 p-4">
-          <div className="text-slate-300 text-[11px] mb-3 font-medium">Good Morning, Sunay</div>
-          <div className="grid grid-cols-4 gap-2 mb-4">
-            {[
-              { label: "Total Leads",    val: "1,250", up: "+18.5%" },
-              { label: "Active Customers",val: "320",  up: "+8.2%" },
-              { label: "Active Deals",   val: "98",    up: "+16.7%" },
-              { label: "Revenue (YTD)", val: "€2.4M",  up: "+18.3%" },
-            ].map(s => (
-              <div key={s.label} className="bg-slate-800/60 rounded-lg p-2.5">
-                <div className="text-slate-400 text-[9px] mb-1">{s.label}</div>
-                <div className="text-white font-bold text-[13px]">{s.val}</div>
-                <div className="text-emerald-400 text-[9px] mt-0.5">{s.up}</div>
-              </div>
-            ))}
-          </div>
-          {/* Mini chart bars */}
-          <div className="flex items-end gap-1 h-10 mb-2">
-            {[4,6,5,8,7,9,10,8,11,9,12,10].map((h, i) => (
-              <div key={i} className="flex-1 rounded-sm"
-                style={{ height: `${h * 8}%`, background: i === 11 ? "#3B82F6" : "#1e3a5f" }} />
-            ))}
-          </div>
-          <div className="text-slate-500 text-[9px] flex gap-4">
-            <span className="text-emerald-400">● New lead from website — 2 min ago</span>
-            <span>● Vehicle added: BMW X5 2021 — 15 min ago</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
+
 
 export default async function HomePage() {
   const t = await getTranslations()
@@ -65,11 +11,11 @@ export default async function HomePage() {
   // ── Businesses ──────────────────────────────────────────────────────────────
   const businesses = [
     { Icon: Tent,         name: "Campers",    href: "https://descampers.com", color: "#1D9E75",
-      img: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=80" },
-    { Icon: Car,          name: "Automotive", href: "https://desmobil.com",   color: "#3B82F6",
-      img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" },
+      img: "/images/campers-card.jpg" },
+    { Icon: Car,          name: "Mobil",      href: "https://desmobil.com",   color: "#3B82F6",
+      img: "/images/mobil-card.jpg" },
     { Icon: Terminal,     name: "TECH",       href: "/businesses#it",         color: "#8B5CF6",
-      img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80" },
+      img: "/images/tech-card.jpg" },
     { Icon: ShoppingCart, name: "Shop",       href: "https://desshop.nl",     color: "#F59E0B",
       img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600&q=80" },
   ]
@@ -132,13 +78,13 @@ export default async function HomePage() {
                 </div>
               ))}
             </div>
-            <Link href="/platform"
+            <a href="https://dessystems.io/platform" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-blue-600 text-white text-[13px] font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-colors">
               {t("Platform.cta")} <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
           </div>
           <div className="lg:pl-8">
-            <DashboardMockup />
+            <img src="/images/platform-dashboard.jpg" alt="DES Platform Dashboard" className="w-full rounded-xl shadow-2xl border border-slate-200" />
             <p className="text-center text-[11px] text-slate-400 mt-3">{t("Platform.view_features")} →</p>
           </div>
         </div>

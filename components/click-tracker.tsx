@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useRef } from "react"
 
-const TENANT_ID = 199  // desmobil.com
+const TENANT_ID = 199  // deshold.com
 
 function generateUUID(): string {
   try {
@@ -47,7 +47,7 @@ export function ClickTracker() {
     function logPageView() {
       const payload = JSON.stringify({
         event_type: "page_view",
-        page: window.location.pathname,
+        page: window.location.pathname + window.location.search,
         session_id: sessionRef.current,
         tenant_id: TENANT_ID,
         device_type: parseDevice(navigator.userAgent),
@@ -71,7 +71,7 @@ export function ClickTracker() {
       lastFiredMap.set(tracked, now)
       const payload = JSON.stringify({
         event_type: "click",
-        page: window.location.pathname,
+        page: window.location.pathname + window.location.search,
         session_id: sessionRef.current,
         tenant_id: TENANT_ID,
         metadata: {
